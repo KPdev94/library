@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewmodel" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <title>Odin's Library</title>
+        <link name="stylesheet" href="./style.css">
+        <script src="./script.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1>Odin's Project Library</h1>
+            <p>This is a library program to record books, and if you've read them yet or not!</p>      
+        </header>
+        <main>
+            <form id="add-book">
+                <input type="text" id="title" name="title" placeholder="Title">
+                <input type="text" id="author" name="author" placeholder="Author">
+                <input type="number" id="pages" name="pages" placeholder="Pages">
+                <br>
+                <label for="read">I've read this</label>
+                <input type="checkbox" id="read" name="read" value="read">  
+                <br>                  
+                <input type="submit" id="submit-btn" value="Add book">
+            </form>
+            <div id="added-books">
+
+            </div>
+        </main>
+    </body>
+</html>
