@@ -3,7 +3,7 @@
     <head>
         <meta name="viewmodel" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
-        <title>Odin's Library</title>
+        <title>Odin's Little Library</title>
         <link name="stylesheet" href="./style.css">
         <script src="./script.js" defer></script>
     </head>
@@ -19,13 +19,29 @@
                 <input type="number" id="pages" name="pages" placeholder="Pages">
                 <br>
                 <label for="read">I've read this</label>
-                <input type="checkbox" id="read" name="read" value="read">  
+                <input type="checkbox" id="read" name="read">  
                 <br>                  
-                <input type="submit" id="submit-btn" value="Add book">
+                <input type="submit" id="submit-btn">
             </form>
-            <div id="added-books">
-
-            </div>
+            <table id="added-books">
+                <theader id="table-header">
+                    <tr>
+                        <th>
+                            <p>Title</p>
+                        </th>
+                        <th>
+                            <p>Author</p>
+                        </th>
+                        <th>
+                            <p>Read</p>
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                </theader>
+                <tbody id="table-body">
+                </tbody>
+            </table>
         </main>
     </body>
 </html>
