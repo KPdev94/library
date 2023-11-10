@@ -1,0 +1,125 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: #F4F4F4;
+}
+
+#main-container {
+    display: grid;
+    grid-template-rows: repeat(autofit, minmax(1fr, 300px)); 
+    background-color: #F4F4F4;
+}
+
+.fillable-info {
+    display: flex;
+    flex-direction: column;
+}
+
+#add-books {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr) 1fr 1fr;
+    gap: 15px;
+}
+
+#read-info {
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+}
+#submit-btn {
+    width: 60px;
+    height: 25px;
+    justify-self: center;
+    align-self: end;
+}
+.fillable-info label {
+    padding-left: 10px;
+}
+.fillable-info input {
+    width: 70%;
+}
+
+#added-books-wrapper {
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+#books-headers {
+
+}
+
+
+#added-books-list {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.book-card {
+    max-height: 200px;
+    max-width: 300px;
+    background-color: burlywood;
+    border-radius: 10px;
+    padding: 8px;
+    grid-column: span 1;
+}
+
+.read-test {
+    height: 24px;
+    width: 120px;
+    display: flex;
+    background-color: black;
+    border-radius: 8px;
+    color: white;
+}
+
+.read-switch-read, .read-switch-unread {
+    display: flex;
+    flex: 1 0 auto;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+    padding: 6px;
+}
+
+.read-switch-read {
+    background-color: green;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.read-switch-unread {
+    background-color: red;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.unread-blocker {
+    color: gray;
+    flex: 1 0 auto;
+    height: 100%;
+    width: 50%;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    justify-content: flex-end;
+}
+
+.read-blocker {
+    color: gray;
+    flex: 1 0 auto;
+    height: 100%;
+    width: 50%;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    justify-content: flex-start;
+}
+.read-button {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    gap: 10px;
+    user-select: none;
+}

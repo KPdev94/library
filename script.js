@@ -2,8 +2,8 @@ let newTitle = document.querySelector("#title");
 let newAuthor = document.querySelector("#author");
 let newPages = document.querySelector("#pages");
 let newRead = document.querySelector("#read");
-let form = document.querySelector("#add-book");
-let tableBody = document.querySelector("#table-body");
+let form = document.querySelector("#add-books");
+let booksList = document.querySelector("#added-books-list");
 
 let submitBtn = document.querySelector("#submit-btn");
 
@@ -48,7 +48,7 @@ function addBookToLibrary() {
     else {
         alert("Please enter a title and author.");
     }
-    updateLibrary();
+    renderLibrary();
     console.log(library.length);
 }
 
@@ -70,19 +70,43 @@ function deleteBook(e) {
     library.splice(toBeDeleted, 1);
     renderLibrary();
 }
+function changeReadStatus(e) {
+    let changeReadOf = e.target.parentNode.getAttribute("data-num");
+    if(library[changeReadOf].read == true) {
+        library[changeReadOf].read = false;
+    }
+    else {
+        library[changeReadOf].read = true;
+    }
+    renderLibrary();
+}
 
 const renderLibrary = () => {
-    tableBody.innerHTML = "";
+    booksList.innerHTML = "";
     library.forEach((book) => {
+        if(book.read == true) 
+            readStatus = `
+            <div class="read-test" data-num="${count}">
+                <div class="read-switch-read">Read</div>
+                <div class="unread-blocker"></div>
+            </div>`;
+        
+        else 
+            readStatus = `        
+            <div class="read-test" data-num="${count}">
+                <div class="read-blocker"></div>
+                <div class="read-switch-unread">Unread</div>
+            </div>`;
+        
     const bookRow = `
-        <tr>
-            <td>${book.title}</td>
-            <td>${book.author}</td>
-            <td>${book.read}</td>
-            <td><button class="deleteBook" data-num="${count}">Delete</button></td>
-        </tr> 
+        <div class="book-card">
+            <p>Title: ${book.title}</p>
+            <p>Author: ${book.author}</p>
+            <div class="read-button">Status: ${readStatus}</div>
+            <button class="deleteBook" data-num="${count}">Delete</button>
+        </div> 
         `;
-    tableBody.insertAdjacentHTML("beforeend", bookRow);
+    booksList.insertAdjacentHTML("beforeend", bookRow);
     count++;
     }); 
     count = 0;
@@ -92,7 +116,15 @@ const renderLibrary = () => {
     deleteBtn.forEach((button) => {
         button.addEventListener('click', deleteBook);
     })
+
+    let readBtn = document.querySelectorAll(".read-button");
+    readBtn.forEach((button) => {
+    button.addEventListener('click', changeReadStatus);
+    });
 }
+
+
+
 renderLibrary();
 
 
