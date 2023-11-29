@@ -11,7 +11,7 @@ let library = [];
 let count = 0;
 
 class Book{
-    constructor(title, author, pages, read = false) {
+    constructor(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -40,8 +40,7 @@ library = DEFAULT_LIBRARY;
 
 function addBookToLibrary() {
     if(title.value && author.value) {
-        newRead.value = newRead.checked ? true : false;
-        const newBook = new Book(newTitle.value, newAuthor.value, newPages.value, newRead.value);
+        const newBook = new Book(newTitle.value, newAuthor.value, newPages.value, newRead.checked ? true : false);
         library.push(newBook);
         console.log("BOOK SHOULD BE PUSHED");
     }
